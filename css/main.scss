@@ -8,6 +8,11 @@
     src: url("HelveticaNowText-Light.ttf");
 }
 
+@font-face {
+    font-family: "Helvetica-ULight";
+    src: url("helvetica-ultra-light.otf");
+}
+
 body {
     padding: 0;
     margin: 0;
@@ -15,51 +20,6 @@ body {
     color: #fff;
     background: #0D0D0D;
     font-family: "Helvetica-Light";
-}
-
-.accordion-item,
-.accordion-header,
-.accordion,
-.accordion-button {
-    background: #0D0D0D;
-    color: #fff;
-    // outline: none;
-    // border: 0;
-}
-
-.accordion-button:not(.collapsed) {
-    background: #0D0D0D;
-    color: #fff;
-}
-
-.accordion-button {
-    font-family: "Helvetica-Bold";
-    font-size: 34px;
-
-    @media (max-width: 991px) {
-        font-size: 30px;
-    }
-}
-
-.accordion-button:not(.collapsed)::after {
-    background-image: url('../img/accordion-icon.svg');
-}
-
-.accordion-button::after {
-    background-image: url('../img/accordion-icon.svg');
-}
-
-.accordion-body {
-    font-size: 26px;
-
-    @media (max-width: 991px) {
-        font-size: 20px;
-    }
-}
-
-.accordion-button:focus {
-    border-color: #fff;
-    box-shadow: 0 0 0 0.25rem rgba(224, 224, 224, 0.33);
 }
 
 a {
@@ -92,6 +52,80 @@ a {
             @media (max-width: 991px) {
                 opacity: 0;
             }
+        }
+    }
+
+    &-contact {
+        font-size: 30px;
+
+        @media (max-width: 991px) {
+            font-size: 26px;
+            // margin-top: 0;
+        }
+    }
+
+    &-centertitle {
+        text-align: center;
+
+
+        & .logo {
+            display: flex;
+            font-family: "Helvetica-Bold";
+            font-size: 150px;
+            font-weight: 700;
+
+            & span {
+                display: block;
+                font-size: 65px;
+                margin-top: 5px;
+                margin-left: 3px;
+            }
+
+            @media (max-width: 991px) {
+                font-size: 50px;
+                justify-content: center;
+
+                & span {
+                    font-size: 25px;
+                }
+            }
+        }
+
+        & .description {
+            font-family: "Helvetica-Light";
+            font-size: 45px;
+            font-weight: 300;
+            margin-top: -40px;
+
+            @media (max-width: 991px) {
+                font-size: 20px;
+                margin-top: 0;
+            }
+        }
+
+        & .soon {
+            margin-top: 70px;
+            font-size: 30px;
+            margin-bottom: -70px;
+            font-family: "Helvetica-ULight";
+
+            @media (max-width: 991px) {
+                font-size: 26px;
+                // margin-top: 0;
+            }
+        }
+    }
+
+    &-footer {
+        position: absolute;
+        bottom: 0px;
+        text-align: center;
+        font-size: 24px;
+        font-family: "Helvetica-ULight";
+
+        @media (max-width: 991px) {
+            font-size: 18px;
+            // margin-top: 0;
         }
     }
 
