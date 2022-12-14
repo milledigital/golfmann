@@ -5,64 +5,233 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GOLFMANN</title>
-    <meta name="description" content="𝐆𝐨𝐥𝐟𝐦𝐚𝐧𝐧 – 𝐍𝐞𝐰 𝐄𝐜𝐨𝐧𝐨𝐦𝐢𝐜 𝐒𝐭𝐚𝐧𝐝𝐚𝐫𝐝𝐬" />
+    <title>Golmann</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="manifest" href="favicon/site.webmanifest">
-    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#030c0f">
-    <meta name="msapplication-TileColor" content="#589be7">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
+    <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
-
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="𝐆𝐨𝐥𝐟𝐦𝐚𝐧𝐧">
-    <meta property="og:description" content="𝐆𝐨𝐥𝐟𝐦𝐚𝐧𝐧 – 𝐍𝐞𝐰 𝐄𝐜𝐨𝐧𝐨𝐦𝐢𝐜 𝐒𝐭𝐚𝐧𝐝𝐚𝐫𝐝𝐬">
-    <meta property="og:image" content="https://i.imgur.com/B6dc472.png">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="𝐆𝐨𝐥𝐟𝐦𝐚𝐧𝐧">
-    <meta name="twitter:description" content="𝐆𝐨𝐥𝐟𝐦𝐚𝐧𝐧 – 𝐍𝐞𝐰 𝐄𝐜𝐨𝐧𝐨𝐦𝐢𝐜 𝐒𝐭𝐚𝐧𝐝𝐚𝐫𝐝𝐬">
-    <meta name="twitter:image" content="https://i.imgur.com/B6dc472.png">
 </head>
 
 <body>
-    <!-- first (main) page -->
-    <div class="glf-mainpage">
-        <div class="glf-menu-container">
-            <div class="container">
-                <div class="d-flex justify-content-end align-items-center">
-                    <a href="https://t.me/therealgolfmann" class="glf-contact">
-                        Contact
-                    </a>
+    <div class="container">
+        <!-- <div class="gf-content">
+            <img src="media/cubes-pc.svg" alt="">
+        </div> -->
+        <div class="gf-content">
+            <div class="gf-field" style="">
+                <!-- <div class="gf-cube t-2 green"></div>
+                <div class="gf-cube t-2 yellow"></div>
+                <div class="gf-cube t-2 blue"></div>
+                <div class="gf-cube t-2 red"></div> -->
+                <!-- <div class="gf-cube t-1"></div>
+                <div class="gf-cube t-2"></div>
+                <div class="gf-cube t-3"></div>
+                <div class="gf-cube t-4"></div>
+                <div class="gf-cube t-5"></div>
+                <div class="gf-cube t-6"></div>
+                <div class="gf-cube t-7"></div>
+                <div class="gf-cube t-8"></div>
+                <div class="gf-cube t-9"></div> -->
+            </div>
+            <div class="gf-field-mobile">
+
+            </div>
+        </div>
+
+        <div class="gf-footer">
+            <section class="london">
+                <div class="container">
+                    <div class="cipher header">
+                        ® 2022 Golfmann LLC – by invitation only
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="glf-centertitle">
-            <div class="logo">
-                GOLFMANN
-                <span>®</span>
-            </div>
-            <div class="description">
-                technology-driven financial services
-            </div>
-            <div class="soon">
-                coming soon
-            </div>
-        </div>
-
-        <div class="glf-footer">
-            ® 2022 Golfmann LLC, 107 Greenwich St, NY
+            </section>
         </div>
     </div>
 
-    <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+
+    <script>
+        (function ($) { // Begin jQuery extension
+
+            var timer;
+
+            Number.prototype.range = function (min, max) {
+                return this > min && this < max;
+            };
+
+            var rd = function randomAlphaNum() {
+                var rand = Math.floor(Math.random() * (122 - 33 + 1) + 33);
+
+                // Filter out char codes that are not required
+                if (rand.range(38, 48)) rand = rand + 10;
+                else if (rand.range(57, 63)) rand = rand + 10;
+                else if (rand.range(90, 97)) rand = rand + 10;
+
+                return String.fromCharCode(rand);
+            };
+
+            $.fn.cipherStart = function (begin) {
+                this.each(function () {
+
+                    var $ele = $(this),
+                        str = $ele.text(),
+                        i = 0,
+                        replace = /[^\s]/g;
+
+                    $ele.text(''); // Clears the text
+
+                    timer = setInterval(function () {
+                        $ele.text(
+                            str.substring(0, i) + // Returns a subset of the initial string, on the first call 0 0 returns nothing, next is 0 1 etc
+                            str.substring(i, str.length) // Returns a subset of progress to the full length of the string
+
+                                .replace(replace, rd) // replace all characters with a random char code
+                        );
+
+                        if (begin) { // Reveal text
+                            i++;
+
+                            if (i > str.length)
+                                clearInterval(timer);
+                        }
+
+                    }, 50); // Timing  
+                });
+                return this;
+            };
+
+            $.fn.cipherStop = function () {
+                clearInterval(timer);
+
+                return this;
+            };
+
+            $.fn.cipherCenter = function () {
+                this.css('position', 'absolute');
+                this.css('top', Math.max(0, (($(window).height() - $(this).outerHeight()) / 2.3) + $(window).scrollTop()) + 'px');
+                this.css('left', Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + $(window).scrollLeft()) + 'px');
+
+                return this;
+            }
+
+
+        })(jQuery); // End jQuery Extension
+
+        // cubes: 17 * 7
+        // cube size: w 76px h 88px
+
+        function random(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        let fieldsize = 17 * 7;
+
+        for (let index = 0; index < fieldsize; index++) {
+            $('.gf-field').append(`<div class="gf-cube t-` + random(1, 9) + `" data-id="${index}"></div>`);
+        }
+
+        let mobilefieldsize = 9 * 14;
+
+        for (let index = 0; index < mobilefieldsize; index++) {
+            $('.gf-field-mobile').append(`<div class="gf-cube t-` + random(1, 9) + `" data-id="${index}"></div>`);
+        }
+
+        $('.gf-cube').hover(function () {
+            // $(this).removeClass('hovered');
+            $(this).addClass('hovered');
+            setTimeout(() => {
+                $(this).removeClass('hovered');
+            }, 2000);
+        });
+
+        // $('.gf-field').fadeIn(500);
+
+        function addcolor(cube) {
+            // cube = random(0, fieldsize);
+            $('*[data-id="' + cube + '"]').animate('transition', '2s');
+            // $('*[data-id="' + cube + '"]').css('opacity', '0');
+        }
+
+        addcolor(random(0, fieldsize), 'green');
+
+        setTimeout(() => {
+            $('*[data-id="' + random(0, fieldsize) + '"]').addClass('green');
+        }, 300);
+
+        setTimeout(() => {
+            $('*[data-id="' + random(0, fieldsize) + '"]').addClass('blue');
+        }, 600);
+
+        setTimeout(() => {
+            $('*[data-id="' + random(0, fieldsize) + '"]').addClass('yellow');
+        }, 900);
+
+        setTimeout(() => {
+            $('*[data-id="' + random(0, fieldsize) + '"]').addClass('red');
+        }, 1200);
+
+        setTimeout(() => {
+            $('*[data-id="' + random(0, fieldsize) + '"]').addClass('green');
+        }, 1500);
+
+        setTimeout(() => {
+            $('*[data-id="' + random(0, fieldsize) + '"]').addClass('blue');
+        }, 1800);
+
+        setTimeout(() => {
+            $('*[data-id="' + random(0, fieldsize) + '"]').addClass('yellow');
+        }, 2100);
+
+        setTimeout(() => {
+            $('*[data-id="' + random(0, fieldsize) + '"]').addClass('red');
+        }, 2400);
+
+        $('.gf-cube').click(function () {
+            cube = $(this);
+            cube_id = cube.data('id');
+
+        });
+
+        $('document').ready(function () {
+
+            $(document).bind(
+                'touchmove',
+                function (e) {
+                    e.preventDefault();
+                }
+            );
+
+
+            // Hide header
+            $('.header').hide();
+            // Transition background
+            $('.london').ready(function () {
+                $('.london').show();
+
+                $('.header').show();
+                $('.cipher').cipherStart(true);
+
+
+            });
+
+        });
+
+        // $('.gf-cube').each(function () {
+        //     $(this).css('background-position', '-' + random(1, 7) * 76 + 'px ' + random(0, 7) * 88 + 'px');
+        // })
+    </script>
 </body>
 
 </html>
